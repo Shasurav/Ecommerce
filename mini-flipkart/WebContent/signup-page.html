@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sign-in/Sign-up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Tangerine">
+           <script>
+window.onload = function(){
+    var filesInput = document.getElementById("file");
+    filesInput.addEventListener("change", function(event){
+        var files = event.target.files; 
+        var output = document.getElementById("img");
+        
+            var file = files[0];
+            var picReader = new FileReader();
+            picReader.addEventListener("loadend",function(event){
+                var image = new Image();
+               	image.src = this.result;
+               	image.setAttribute("class","thumbnail");
+                output.appendChild(image);            
+            });
+            picReader.readAsDataURL(file);
+                                       
+    });
+}
+</script>
+<style type="text/css">
+.thumbnail{
+			height:200px;
+			width:200px;
+			border-radius:50%;
+			
+			margin:auto;}
+.col-sm-8,form-group{margin-left:100px;}			
+</style>
+</head>
+</head>
+<body style="background: linear-gradient(to bottom, #1D2671, #C33764); background-repeat:no-repeat;height:1000px;">
+ 
+    
+  <div class="container" style="width:600px; background-color: rgba(0, 0, 0, 0.15);color:white; margin-top: 70px; padding:10px; box-shadow: 20px 20px 60px 20px rgba(0,0,0,0.5); border-radius: 10px;">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#sign-up">Sign-Up</a></li>
+    <li><a data-toggle="tab" href="#sign-in">Sign-in</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="sign-up" class="tab-pane fade in active">
+  	<div> <h1></h1>  </div>
+  	<form action="signup" method="post" enctype="multipart/form-data">
+  	<div class="col-sm-8">
+  	<div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-camera"></span>Upload Image</label>
+              <input type="file"  class="form-control" name="upload" id="file"  multiple>
+            </div>
+            </div>
+            <div class="col-sm-8">
+            <div id="img" >
+            </div>
+           </div>
+  	<div class="col-sm-8">
+   <div class="form-group" >
+      <input type="text" class="form-control" id="first_name" placeholder="Firstname" name="first_name" required>
+    </div></div>
+    <div class="col-sm-8">
+    <div class="form-group">
+      <input type="text" class="form-control" id="last_name" placeholder="Lastname" name="last_name" required>
+    </div></div>
+    <div class="col-sm-8">
+    <div class="form-group">
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+    </div></div>
+    <script type="text/javascript">
+    var check = function() {
+    	  if (document.getElementById('pwd').value !=
+    	    document.getElementById('cpwd').value) {
+    		alert("check password")  
+    	  }}
+    </script>
+    <div class="col-sm-8">
+    <div class="form-group">
+      <input type="password" class="form-control" id="pwd" placeholder="password" name="pwd" required>
+    </div></div>
+    <div class="col-sm-8">
+    <div class="form-group">
+      <input type="password" class="form-control" id="cpwd" placeholder="Confirm password" name="cpwd" onblur="check();" required>
+    </div></div>
+    <div class="col-sm-8">
+    <div class="form-group">
+      <input type="number" class="form-control" id="mob" placeholder=" Number" name="mob" required >
+    </div></div>
+    <div class="col-sm-8">
+     <div class="form-group">
+ 	 <textarea  name="address" class="form-control" id="address" placeholder="address"></textarea>
+     </div></div>
+    <div class="col-sm-6">
+    <div class="form-group">
+    <input type="radio" name="gender" value="Buyer" required> Buyer<br>
+    </div></div>
+    <div class="col-sm-6">
+    <div class="form-group">
+    <input type="radio" name="gender" value="Seller" required> Seller<br>
+    </div></div>
+    <div class="col-sm-6">
+    <button type="submit" class="btn btn-primary btn-block" >Submit</button>
+    </div>
+    <div class ="col-md-6">
+   <button type="reset" class="btn btn-info btn-block" >Reset</button>
+	</div>
+   </div>
+   </form>
+    <div id="sign-in" class="tab-pane fade">
+      <div class="container" style="width:600px;" >
+  <form action="signin" method="post">
+  <div class="col-sm-8">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div></div>
+    <div class="col-sm-8">
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="spwd" placeholder="Enter password" name="pwd">
+    </div></div>
+    <div class="col-sm-6">
+    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+   </div>
+   <div class ="col-md-6">
+   <button type="reset" class="btn btn-info btn-block" >Reset</button>
+	</div> 
+ </form>
+</div>
+    </div>
+  </div>
+</div><br><br><br>
+<h1 Style="color:white; font-family: 'Tangerine', serif; text-shadow: 4px 4px 4px #aaa; margin-left:400px;font-size:50px;"> Mini-Flipkart</h1>
+</body>
+</html>
